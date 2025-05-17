@@ -5,6 +5,14 @@ import os
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read() if os.path.exists("README.md") else ""
 
+# Replace relative image paths with absolute URLs for PyPI
+if os.path.exists("README.md"):
+    # Replace local image reference with a GitHub raw URL
+    long_description = long_description.replace(
+        'src="assets/logo.png"',
+        'src="https://raw.githubusercontent.com/duestack/wafishield/main/assets/logo.png"',
+    )
+
 # Define package dependencies
 install_requires = [
     "pyyaml>=6.0",
@@ -47,7 +55,7 @@ extras_require = {
 
 setup(
     name="wafishield",
-    version="0.1.0",
+    version="0.1.1",
     author="duestack",
     author_email="info@duestack.com",
     description="A two-layer, fully-extensible Python package for protecting LLM/agent apps against OWASP Top 10 and other evolving LLM vulnerabilities.",
