@@ -43,7 +43,9 @@ coverage.xml
 .pytest_cache/
 
 .trae/
+.trae/rules/
 .github/
+.github/instructions/
 
 # Jupyter Notebook
 .ipynb_checkpoints
