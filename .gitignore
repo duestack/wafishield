@@ -44,8 +44,9 @@ coverage.xml
 
 .trae/
 .trae/rules/
-.github/
 .github/instructions/
+# Allow GitHub workflows
+!.github/workflows/
 
 # Jupyter Notebook
 .ipynb_checkpoints

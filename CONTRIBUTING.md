@@ -2,14 +2,14 @@
 
 Thank you for your interest in contributing to WAFIShield!
 
-Please see our detailed contribution guidelines in the [documentation](https://duestack.github.io/wafishield/contributing).
+Please see our detailed contribution guidelines in the [documentation](https://github.com/duestack/wafishield/blob/main/docs/contributing.md).
 
 ## Quick Links
 
 - [Report an issue](https://github.com/duestack/wafishield/issues)
-- [Development setup](https://duestack.github.io/wafishield/contributing#development-setup)
-- [Coding style](https://duestack.github.io/wafishield/contributing#coding-style)
-- [Testing guidelines](https://duestack.github.io/wafishield/contributing#testing)
+- [Development setup](https://github.com/duestack/wafishield/blob/main/docs/contributing.md#development-setup)
+- [Coding style](https://github.com/duestack/wafishield/blob/main/docs/contributing.md#coding-style)
+- [Testing guidelines](https://github.com/duestack/wafishield/blob/main/docs/contributing.md#testing)
 
 ## Code of Conduct
 
