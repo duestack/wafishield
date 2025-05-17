@@ -7,7 +7,7 @@ description: A two-layer, fully-extensible Python package for protecting LLM/age
 # WAFIShield
 
 <div align="center">
-  <img src="assets/logo.png" alt="WAFIShield Logo" width="300"/>
+  <img src="assets/images/logo.png" alt="WAFIShield Logo" width="300"/>
   <br>
   <h3>A two-layer, fully-extensible Python package for protecting LLM/agent apps against OWASP Top 10 and other evolving LLM vulnerabilities</h3>
 </div>
