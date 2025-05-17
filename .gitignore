@@ -98,6 +98,12 @@ Desktop.ini
 # Fix scripts
 fix_*.py
 
+# Project rules and instructions
+project_rules.md
+project_rules.instructions.md
+**/project_rules.md
+**/project_rules.instructions.md
+
 # Ignore specific temp files
 *.py.fixed
 *.py.new
