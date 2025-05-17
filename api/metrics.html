@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Metrics Collector API | WAFIShield</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Metrics Collector API" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A two-layer, fully-extensible Python package for protecting LLM/agent apps against OWASP Top 10 and other evolving LLM vulnerabilities" />
+<meta property="og:description" content="A two-layer, fully-extensible Python package for protecting LLM/agent apps against OWASP Top 10 and other evolving LLM vulnerabilities" />
+<meta property="og:site_name" content="WAFIShield" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Metrics Collector API" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"A two-layer, fully-extensible Python package for protecting LLM/agent apps against OWASP Top 10 and other evolving LLM vulnerabilities","headline":"Metrics Collector API","url":"/api/metrics.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style" type="text/css" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/assets/css/style.css?v=85dce181030e73119dda003153bb1b3cf18ed980">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header" role="banner">
+      <h1 class="project-name">Metrics Collector API</h1>
+      <h2 class="project-tagline">A two-layer, fully-extensible Python package for protecting LLM/agent apps against OWASP Top 10 and other evolving LLM vulnerabilities</h2>
+      
+        <a href="https://github.com/duestack/wafishield" class="btn">View on GitHub</a>
+      
+      
+        <a href="https://github.com/duestack/wafishield/zipball/gh-pages" class="btn">Download .zip</a>
+        <a href="https://github.com/duestack/wafishield/tarball/gh-pages" class="btn">Download .tar.gz</a>
+      
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <h1 id="metrics-collector-api-reference">Metrics Collector API Reference</h1>
+
+<p>The <code class="language-plaintext highlighter-rouge">MetricsCollector</code> class handles the collection and reporting of metrics related to WAFIShield’s operation.</p>
+
+<h2 id="initialization">Initialization</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">wafishield.metrics</span> <span class="kn">import</span> <span class="n">MetricsCollector</span>
+
+<span class="n">metrics</span> <span class="o">=</span> <span class="n">MetricsCollector</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h2 id="methods">Methods</h2>
+
+<h3 id="increment">increment()</h3>
+
+<p>Increment a metric counter.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">metrics</span><span class="p">.</span><span class="n">increment</span><span class="p">(</span><span class="n">metric_name</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><strong>Parameters:</strong></p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">metric_name</code> (str): Name of the metric to increment</li>
+  <li><code class="language-plaintext highlighter-rouge">value</code> (int/float, optional): Value to increment by (default: 1)</li>
+</ul>
+
+<h3 id="get_current_metrics">get_current_metrics()</h3>
+
+<p>Get all current metrics as a dictionary.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">current_metrics</span> <span class="o">=</span> <span class="n">metrics</span><span class="p">.</span><span class="n">get_current_metrics</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><strong>Returns:</strong></p>
+<ul>
+  <li>Dictionary containing all collected metrics</li>
+</ul>
+
+<h3 id="register_telemetry_handler">register_telemetry_handler()</h3>
+
+<p>Register a custom handler for forwarding metrics to external systems.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">metrics</span><span class="p">.</span><span class="n">register_telemetry_handler</span><span class="p">(</span><span class="n">handler_function</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><strong>Parameters:</strong></p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">handler_function</code> (callable): Function to call with metrics</li>
+</ul>
+
+<h3 id="setup_opentelemetry">setup_opentelemetry()</h3>
+
+<p>Configure OpenTelemetry integration.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">metrics</span><span class="p">.</span><span class="n">setup_opentelemetry</span><span class="p">(</span>
+    <span class="n">service_name</span><span class="o">=</span><span class="s">"wafishield-service"</span><span class="p">,</span>
+    <span class="n">endpoint</span><span class="o">=</span><span class="s">"http://otel-collector:4317"</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<p><strong>Parameters:</strong></p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">service_name</code> (str): Name of the service</li>
+  <li><code class="language-plaintext highlighter-rouge">endpoint</code> (str): OpenTelemetry collector endpoint</li>
+  <li><code class="language-plaintext highlighter-rouge">additional_config</code> (dict, optional): Additional configuration options</li>
+</ul>
+
+<h2 id="default-metrics">Default Metrics</h2>
+
+<p>WAFIShield tracks the following metrics by default:</p>
+
+<h3 id="requestresponse-metrics">Request/Response Metrics</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">prompts_total</code>: Total number of prompts evaluated</li>
+  <li><code class="language-plaintext highlighter-rouge">responses_total</code>: Total number of responses evaluated</li>
+</ul>
+
+<h3 id="result-metrics">Result Metrics</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">rules_failed</code>: Number of evaluations that failed rule checks</li>
+  <li><code class="language-plaintext highlighter-rouge">sanitizations_applied</code>: Number of evaluations where sanitization was applied</li>
+  <li><code class="language-plaintext highlighter-rouge">llm_checks</code>: Number of evaluations sent to the secondary LLM</li>
+  <li><code class="language-plaintext highlighter-rouge">llm_checks_failed</code>: Number of evaluations that failed LLM checks</li>
+  <li><code class="language-plaintext highlighter-rouge">llm_checks_skipped_after_sanitization</code>: Number of times LLM evaluation was skipped after sanitization</li>
+</ul>
+
+<h3 id="detailed-metrics">Detailed Metrics</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">rule_{rule_id}_failed</code>: Count of failures for specific rules</li>
+  <li><code class="language-plaintext highlighter-rouge">sanitizer_{pattern_id}_applied</code>: Count of specific patterns applied</li>
+</ul>
+
+<h3 id="system-metrics">System Metrics</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">started_at</code>: UNIX timestamp when metrics collection started</li>
+  <li><code class="language-plaintext highlighter-rouge">uptime_seconds</code>: Time since metrics collection started</li>
+</ul>
+
+<h2 id="opentelemetry-integration">OpenTelemetry Integration</h2>
+
+<p>WAFIShield supports sending metrics to OpenTelemetry for integration with observability platforms:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Configure OpenTelemetry
+</span><span class="n">wafishield</span><span class="p">.</span><span class="n">metrics</span><span class="p">.</span><span class="n">setup_opentelemetry</span><span class="p">(</span>
+    <span class="n">service_name</span><span class="o">=</span><span class="s">"my-llm-service"</span><span class="p">,</span>
+    <span class="n">endpoint</span><span class="o">=</span><span class="s">"http://otel-collector:4317"</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="custom-telemetry-handlers">Custom Telemetry Handlers</h2>
+
+<p>You can also register custom handlers to send metrics to any system:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">statsd_handler</span><span class="p">(</span><span class="n">metric_name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="c1"># Send to StatsD
+</span>    <span class="n">statsd</span><span class="p">.</span><span class="n">gauge</span><span class="p">(</span><span class="sa">f</span><span class="s">"wafishield.</span><span class="si">{</span><span class="n">metric_name</span><span class="si">}</span><span class="s">"</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">prometheus_handler</span><span class="p">(</span><span class="n">metric_name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="c1"># Update Prometheus metric
+</span>    <span class="k">if</span> <span class="n">metric_name</span> <span class="ow">in</span> <span class="n">prometheus_metrics</span><span class="p">:</span>
+        <span class="n">prometheus_metrics</span><span class="p">[</span><span class="n">metric_name</span><span class="p">].</span><span class="nb">set</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+<span class="c1"># Register handlers
+</span><span class="n">wafishield</span><span class="p">.</span><span class="n">metrics</span><span class="p">.</span><span class="n">register_telemetry_handler</span><span class="p">(</span><span class="n">statsd_handler</span><span class="p">)</span>
+<span class="n">wafishield</span><span class="p">.</span><span class="n">metrics</span><span class="p">.</span><span class="n">register_telemetry_handler</span><span class="p">(</span><span class="n">prometheus_handler</span><span class="p">)</span>
+</code></pre></div></div>
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/duestack/wafishield">wafishield</a> is maintained by <a href="https://github.com/duestack">duestack</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </main>
+  </body>
+</html>
