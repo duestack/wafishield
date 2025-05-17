@@ -12,7 +12,9 @@
 
 ## Documentation
 
-Full documentation is available at [https://duestack.github.io/wafishield/](https://duestack.github.io/wafishield/)
+Full documentation is available at [GitHub Pages](https://duestack.github.io/wafishield/) (coming soon).
+
+In the meantime, you can view the documentation directly in the [docs folder](https://github.com/duestack/wafishield/tree/main/docs).
 
 ## Overview
 
