@@ -1,0 +1,11 @@
+source "https://rubygems.org"
+
+gem "github-pages", group: :jekyll_plugins
+
+# Essential plugins
+gem "jekyll-remote-theme"
+gem "jekyll-seo-tag"
+gem "jekyll-sitemap"
+
+# For compatibility with newer Ruby versions
+gem "webrick", "~> 1.7"
