@@ -1,0 +1,90 @@
+{
+    "type": "array",
+    "items": {
+        "type": "object",
+        "required": [
+            "id",
+            "description",
+            "type"
+        ],
+        "properties": {
+            "id": {
+                "type": "string",
+                "description": "Unique identifier for the pattern"
+            },
+            "description": {
+                "type": "string",
+                "description": "Human-readable description of what the pattern detects"
+            },
+            "type": {
+                "type": "string",
+                "enum": [
+                    "regex",
+                    "custom"
+                ],
+                "description": "Type of pattern: regex (regular expression) or custom (requires callback)"
+            },
+            "pattern": {
+                "type": "string",
+                "description": "Regular expression pattern to match (main pattern)"
+            },
+            "english_pattern": {
+                "type": "string",
+                "description": "Regular expression pattern for English text"
+            },
+            "arabic_pattern": {
+                "type": "string",
+                "description": "Regular expression pattern for Arabic text"
+            },
+            "french_pattern": {
+                "type": "string",
+                "description": "Regular expression pattern for French text"
+            },
+            "spanish_pattern": {
+                "type": "string",
+                "description": "Regular expression pattern for Spanish text"
+            },
+            "chinese_pattern": {
+                "type": "string",
+                "description": "Regular expression pattern for Chinese text"
+            },
+            "russian_pattern": {
+                "type": "string",
+                "description": "Regular expression pattern for Russian text"
+            },
+            "hindi_pattern": {
+                "type": "string",
+                "description": "Regular expression pattern for Hindi text"
+            },
+            "portuguese_pattern": {
+                "type": "string",
+                "description": "Regular expression pattern for Portuguese text"
+            },
+            "japanese_pattern": {
+                "type": "string",
+                "description": "Regular expression pattern for Japanese text"
+            },
+            "german_pattern": {
+                "type": "string",
+                "description": "Regular expression pattern for German text"
+            },
+            "replacement": {
+                "type": "string",
+                "description": "Text to replace matched content with"
+            },
+            "action": {
+                "type": "string",
+                "enum": [
+                    "redact",
+                    "tag",
+                    "custom"
+                ],
+                "description": "Action to take when pattern matches: redact (replace), tag (mark), or custom (use callback)"
+            },
+            "enabled": {
+                "type": "boolean",
+                "description": "Whether the pattern is enabled"
+            }
+        }
+    }
+}

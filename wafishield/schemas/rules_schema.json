@@ -1,0 +1,95 @@
+{
+    "type": "array",
+    "items": {
+        "type": "object",
+        "required": [
+            "id",
+            "description",
+            "type"
+        ],
+        "properties": {
+            "id": {
+                "type": "string",
+                "description": "Unique identifier for the rule"
+            },
+            "description": {
+                "type": "string",
+                "description": "Human-readable description of what the rule detects"
+            },
+            "type": {
+                "type": "string",
+                "enum": [
+                    "blacklist",
+                    "whitelist",
+                    "flag"
+                ],
+                "description": "Type of rule: blacklist (block), whitelist (allow), or flag (warn)"
+            },
+            "pattern": {
+                "type": "string",
+                "description": "Regular expression pattern to match (main pattern)"
+            },
+            "english_pattern": {
+                "type": "string",
+                "description": "Regular expression pattern for English text"
+            },
+            "arabic_pattern": {
+                "type": "string",
+                "description": "Regular expression pattern for Arabic text"
+            },
+            "french_pattern": {
+                "type": "string",
+                "description": "Regular expression pattern for French text"
+            },
+            "spanish_pattern": {
+                "type": "string",
+                "description": "Regular expression pattern for Spanish text"
+            },
+            "chinese_pattern": {
+                "type": "string",
+                "description": "Regular expression pattern for Chinese text"
+            },
+            "russian_pattern": {
+                "type": "string",
+                "description": "Regular expression pattern for Russian text"
+            },
+            "hindi_pattern": {
+                "type": "string",
+                "description": "Regular expression pattern for Hindi text"
+            },
+            "portuguese_pattern": {
+                "type": "string",
+                "description": "Regular expression pattern for Portuguese text"
+            },
+            "japanese_pattern": {
+                "type": "string",
+                "description": "Regular expression pattern for Japanese text"
+            },
+            "german_pattern": {
+                "type": "string",
+                "description": "Regular expression pattern for German text"
+            },
+            "action": {
+                "type": "string",
+                "enum": [
+                    "deny",
+                    "allow",
+                    "warn"
+                ],
+                "description": "Action to take when rule matches: deny (block), allow (permit), warn (flag but allow)"
+            },
+            "enabled": {
+                "type": "boolean",
+                "description": "Whether the rule is enabled"
+            },
+            "continue_evaluation": {
+                "type": "boolean",
+                "description": "Whether to continue evaluating other rules after this one matches"
+            },
+            "required": {
+                "type": "boolean",
+                "description": "For whitelist rules, whether a match is required for safety"
+            }
+        }
+    }
+}

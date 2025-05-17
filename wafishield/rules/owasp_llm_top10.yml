@@ -1,0 +1,84 @@
+# OWASP LLM Top 10 Rules
+# Based on OWASP Top 10 for LLM Applications 2023
+
+- id: "LLM01"
+  description: "Prompt Injection: Block instruction override patterns and bypass attempts."
+  type: "blacklist"
+  english_pattern: "ignore instructions|disregard previous|override system|bypass safety"
+  arabic_pattern: "تجاهل التعليمات|تجاوز التعليمات|تجاوز الأمان"
+  french_pattern: "ignorer les instructions|dépasser la sécurité|contourner les instructions"
+  spanish_pattern: "ignorar instrucciones|eludir seguridad|contornar instrucciones"
+  chinese_pattern: "忽略指令|绕过安全|超越指令"
+  action: "deny"
+  enabled: true
+
+- id: "LLM02"
+  description: "Sensitive Information Disclosure: Block explicit attempts to leak sensitive data."
+  type: "blacklist"
+  english_pattern: "leak\\s+sensitive|expose\\s+private|reveal\\s+secrets"
+  action: "deny"
+  enabled: true
+
+- id: "LLM03"
+  description: "Supply Chain: Block unauthorized external URL references."
+  type: "blacklist"
+  english_pattern: "(https?:\\/\\/\\S+)"
+  action: "deny"
+  enabled: true
+
+- id: "LLM04"
+  description: "Data and Model Poisoning: Block attempts to manipulate training data or alter model behavior."
+  type: "blacklist"
+  english_pattern: "(poison|tamper|modify\\s+training\\s+data|alter\\s+model)"
+  action: "deny"
+  enabled: true
+
+- id: "LLM05"
+  description: "Insecure Output Handling: Scan for potentially harmful code in responses."
+  type: "blacklist"
+  english_pattern: "(eval\\(|exec\\(|system\\(|os\\.)"
+  action: "warn"
+  enabled: true
+
+- id: "LLM06"
+  description: "Excessive Agency: Block prompts that grant the LLM unchecked autonomy."
+  type: "blacklist"
+  english_pattern: "(act\\s+on\\s+your\\s+own|autonomous\\s+action|execute\\s+commands\\s+without\\s+approval)"
+  action: "deny"
+  enabled: true
+
+- id: "LLM07"
+  description: "System Prompt Leakage: Block requests that try to reveal internal system prompts or instructions."
+  type: "blacklist"
+  english_pattern: "(reveal\\s+system\\s+prompt|show\\s+internal\\s+instructions|leak\\s+system\\s+context)"
+  action: "deny"
+  enabled: true
+
+- id: "LLM08"
+  description: "Vector and Embedding Weaknesses: Block attempts to manipulate embedding vectors."
+  type: "blacklist"
+  english_pattern: "(manipulate\\s+embeddings|alter\\s+vector)"
+  action: "deny"
+  enabled: true
+
+- id: "LLM09"
+  description: "Misinformation: Flag prompts that include indicators of fabricated or misleading content."
+  type: "flag"
+  english_pattern: "(fabricate\\s+information|generate\\s+fake\\s+news)"
+  action: "warn"
+  enabled: true
+
+- id: "LLM10"
+  description: "Unbounded Consumption: Block resource-intensive or unbounded instructions."
+  type: "blacklist"
+  english_pattern: "(simulate\\s+entire\\s+universe|exhaust\\s+all\\s+resources)"
+  action: "deny"
+  enabled: true
+
+# Whitelist example
+- id: "WHITELIST_SAFE"
+  description: "Whitelist: Allow prompts explicitly marked as safe."
+  type: "whitelist"
+  english_pattern: "\\[SAFE\\]"
+  action: "allow"
+  enabled: true
